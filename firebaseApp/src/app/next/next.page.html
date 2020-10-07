@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Prescription Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input required type="text" placeholder="Presciption Name" [(ngModel)]='user.id'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="text" placeholder="Presciption Amount" [(ngModel)]='user.username'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="text" placeholder="Date Filled" [(ngModel)]='user.firstName'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="text" placeholder="Per Day Amount Taken" [(ngModel)]='user.lastName'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="text" placeholder="Place Filled" [(ngModel)]='user.email'></ion-input>
+    </ion-item>
+  </ion-list>
+  <div id="container">
+    <strong> Tap to start scanner </strong>
+    <ion-button (click)="StartScan()">Start</ion-button>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full"  (click)="saveUserinfo()">Save</ion-button>
+  </ion-toolbar>
+</ion-footer>

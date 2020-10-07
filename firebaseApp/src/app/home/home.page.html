@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Firebase Items Page
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ng-container *ngIf="!users || users.length == 0">
+      <div *ngFor="let n of [0,1,2,3,4]" padding>
+        <ion-skeleton-text></ion-skeleton-text>
+          <p>
+            <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+          </p>
+      </div>
+    </ng-container>
+    <ion-item-sliding *ngFor="let item of users">
+      <ion-item lines="insert" button [routerLink]="['/next', item.id]">
+        <ion-label>
+          {{ item.preName }}
+          <p>
+            {{ item.amount }}
+          </p>
+        </ion-label>
+        <ion-note slot="end" color="primary">
+          {{ item.id }}
+        </ion-note>-
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-options (click)="remove(item)" color="secondary">
+          Delete
+          <ion-icon name="checkmark" slot="end"></ion-icon>
+        </ion-item-options>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/next">
+<ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
